@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
@@ -12,11 +13,20 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          MiniCssExtractPlugin.loader, // Extract CSS to separate file
+          'css-loader', // Process CSS
+        ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        type: 'file-loader',
+        test: /\.(png|jpg|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]', // Preserve original file name
+            outputPath: 'assets', // Place images in assets folder 
+          },
+        },
       },
     ],
   },
