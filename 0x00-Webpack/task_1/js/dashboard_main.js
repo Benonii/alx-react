@@ -16,5 +16,5 @@ $(document).ready(function() {
     $('#count').text(`${count} clicks on the button`);
   }
 
-  $('button').click(debounce(updateCounter));
+  $('button').click(debounce(updateCounter, 300));
 });
