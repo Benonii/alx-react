@@ -7,17 +7,16 @@ module.exports = {
     filename: 'bundle.js',
   },
   mode: "production",
-
   module: {
     rules: [
       {
-        test: /\.css/,
-        use: ["style-loader", "css-loader"]
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        use: ['file-laoder'],
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
       },
-    ]
+    ],
   },
 };
