@@ -3,6 +3,7 @@ import debounce from 'lodash/debounce';
 
 
 $(document).ready(function() {
+  $('body').append('<div id="logo" style="width: 200px; height: 200px"></div>');
   $('body').append('<p>Holberton Dashboard</p>');
   $('body').append('<p>Dashboard data for the students</p>');
   $('body').append('<button>Click here to get started</button>');
