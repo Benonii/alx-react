@@ -1,0 +1,46 @@
+.App-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1.8px solid #ff0000;
+}
+
+.App-header .App-logo {
+  width: 250px;
+  height: 250px;
+}
+
+.App-header h1 {
+  color:#ff0000;
+  font-weight: bold;
+}
+
+.App-header hr {
+  color: #ff0000;
+}
+
+.App-body {
+  height: 55vh;
+  border-bottom: 2px solid #ff0000;
+}
+
+.App-body p {
+  margin-top: 55px;
+  margin-left: 40px;
+  font-size: 130%;
+  font-weight: 500;
+}
+
+.App-body label {
+  margin-left: 40px;
+}
+.App-body input {
+  margin: 10px;
+}
+
+.App-footer p {
+  font-style: italic;
+  text-align: center;
+  font-size: 130%;
+  font-weight: 500;
+}
