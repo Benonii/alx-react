@@ -1,0 +1,30 @@
+.Notifications {
+    position: relative;
+    border: 1px dashed red;
+    padding: 30px;
+}
+
+.Notifications button {
+    margin-top: 10px;
+    margin-right: 15px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    right: 0;
+}
+
+.Notifications button img {
+    width: 10px;
+}
+
+li[data-priority="default"] {
+    color: blue;
+  }
+  
+  li[data-priority="urgent"] {
+    color: red;
+  }
+  
