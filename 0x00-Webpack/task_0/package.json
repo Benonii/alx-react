@@ -1,9 +1,0 @@
-{
-  "devDependencies": {
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "jquery": "^3.7.1"
-  }
-}
