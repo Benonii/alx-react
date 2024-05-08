@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --config config/webpack.config.js",
+    "test": "jest"
+  }
+}
