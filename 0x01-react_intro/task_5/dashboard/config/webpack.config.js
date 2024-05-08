@@ -3,13 +3,14 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: '../src/index.js',
     output: {
      path: path.resolve(__dirname, 'dist'),
      filename: 'bundle.js',
     },
     devServer: {
-        contentBase: '../dist',
+        static: {
+          directory: path.resolve(__dirname, 'dist'),
+        },
         hot: true,
     },
     module: {
@@ -43,7 +44,7 @@ module.exports = {
         ]
       },
       plugins: [
-        new HtmlWebpackPlugin({
+        new HtmlWebPackPlugin({
           template: './src/index.html',
           filename: 'index.html'
         })
