@@ -1,0 +1,19 @@
+.App-body {
+    height: 55vh;
+    border-bottom: 2px solid #ff0000;
+  }
+  
+.App-body p {
+    margin-top: 55px;
+    margin-left: 40px;
+    font-size: 130%;
+    font-weight: 500;
+}
+  
+.App-body label {
+    margin-left: 40px;
+}
+
+.App-body input {
+    margin: 10px;
+}
