@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
 import Notifications from "./Notifications.js";
+import NotificationItem from './NotificationItem.js';
 
 
 describe('', () => {
@@ -39,6 +40,43 @@ describe('', () => {
         expect(wrapper.find('.notificatons')).toBe(true); 
     });
     
-    
+    it('renders correctly if you pass an empty array or bad input', () => {
+        let wrapper = shallow(<Notifications displayDrawer={true} listNotifications={[]} />);
+        expect(wrapper.exists()).toBe(true);
+
+        wrapper = shallow(<Notifications displayDrawer={true} listNotifications="[]" />);
+        expect(wrapper.extsts()).toBe(true);
+    })
+
+    it('renders the correct amount of notifications', () => {
+        const listNotifications = [
+            {
+              id: 1,
+              type: "default",
+              value: "New course available",
+              html: "",
+            },
+            {
+              id: 2,
+              type: "urgent",
+              value: "New resume available",
+              html: "",
+            },
+            {
+              id: 3,
+              type: "urgent",
+              value: "",
+              html: { __html: getLatestNotification() },
+            }
+          ]
+        const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+        expect(wrapper.find(NotificationItem).length).toBe(3);
+    })
+
+    t('renders the right message if you pass an empty array', () => {
+        const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={[]} />);
+        const tableRow = wrapper.find('td');
+        expect(tableRow.text()).toBe('No new notifications for now');
+    })
 
 });

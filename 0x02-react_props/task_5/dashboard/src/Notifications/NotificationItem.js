@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-type";
+import PropTypes from "prop-types";
 
 
 export default function NotificationItem({ type="default", html, value }) {

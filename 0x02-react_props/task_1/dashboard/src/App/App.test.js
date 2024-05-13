@@ -9,7 +9,7 @@ import App from './App.js';
 
 describe('<App />', () => {
     it('renders without crashing', () => {
-        const wrapper = shallow(<App />);
+        const wrapper = <App />;
         expect(wrapper.exists()).toBe(true);
     });
 
