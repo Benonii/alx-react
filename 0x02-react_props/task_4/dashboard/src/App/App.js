@@ -7,19 +7,13 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 
-function App({ isLoggedIn=false }) {
-  listCourses = [
-    {id: 1, name: "ES6", credit: 60},
-    {id: 2, name: "Webpack", credit:20},
-    {id: 3, name: 'React', credit: 40}
-  ]
-
+export default function App({ isLoggedIn=false }) {
   return (
       <>
     <Notifications />
     <div className="App">
       <Header />
-      {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : <Login />}
+      isLoggedIn ? <CourseList /> : <Login />
       <Footer />
     </div>
       </>
@@ -29,5 +23,3 @@ function App({ isLoggedIn=false }) {
 App.PropTypes = {
   isLoggedIn: PropTypes.bool,
 }
-
-export default App;

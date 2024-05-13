@@ -38,7 +38,4 @@ describe('', () => {
         const wrapper = shallow(<Notifications displayDrawer={true}/>);
         expect(wrapper.find('.notificatons')).toBe(true); 
     });
-    
-    
-
 });
