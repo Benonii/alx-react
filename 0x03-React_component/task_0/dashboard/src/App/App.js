@@ -55,6 +55,6 @@ export default class App extends Component {
   }
 }
 
-App.PropTypes = {
+App.propTypes = {
   isLoggedIn: PropTypes.bool,
 }
