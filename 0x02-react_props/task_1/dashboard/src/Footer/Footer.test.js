@@ -5,12 +5,14 @@ import Footer from "./Footer";
 describe('<Footer />', () => {
     it('renders without crushing', () => {
         const wrapper = shallow(<Footer />);
-        expect(wrapper.exists()).toBe(True); 
+        expect(wrapper.exists()).toBe(true); 
     });
 
     it('renders the text "Copyright"', () => {
         const wrapper = shallow(<Footer />);
-        expect(wrapper.find('Copyright')).toBe(True);
+        const footer = wrapper.find('App-footer');
+        const footerP = footer.find('<p>');
+        expect(wrapper.text()).toContain('Copyright');
     });
     
 });
