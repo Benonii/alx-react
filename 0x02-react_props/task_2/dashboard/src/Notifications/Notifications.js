@@ -13,13 +13,13 @@ export default function Notifications () {
         <ul>
           <NotificationItem type="default" value="New course available" />
           <NotificationItem type="urgent" value="New resume available" />
-          <NotificationItem type="urgent" html={{ __html: getLatestNotification() }} />      
+          <NotificationItem type="urgent" html={getLatestNotification()} />      
         </ul>
 
         <button
           style = {{right: '0'}}
           aria-label="Close"
-          onClick={console.log('Close button has been clicked')}>
+          onClick={() => {console.log('Close button has been clicked')}}>
             <img src={img} alt="close icon" />
           </button>
     </div>

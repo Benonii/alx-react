@@ -30,8 +30,11 @@
     "web-vitals": "^3.5.2"
   },
   "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss|png|jpg)$": "<rootDir>/config/styleMock.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>/config/setupTests.js"
+    ]
   }
 }

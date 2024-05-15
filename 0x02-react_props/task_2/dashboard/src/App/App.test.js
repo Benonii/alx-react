@@ -1,10 +1,10 @@
 import React from "react"
 import { shallow } from 'enzyme';
 import App from './App.js';
-//import Notifications from "./Notifications";
-//import Header from "./Header";
-//improt Login from "./"
-
+import Notifications from "../Notifications/Notifications";
+import Header from "../Header/Header";
+import Login from "../Login/Login";
+import Footer from "../Footer/Footer";
 
 
 describe('<App />', () => {
