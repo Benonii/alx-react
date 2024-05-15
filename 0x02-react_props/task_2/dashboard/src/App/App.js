@@ -8,7 +8,6 @@ import Header from "../Header/Header";
 function App() {
   return (
       <>
-      <p>App component renders</p>
     <Notifications />
     <div className="App">
       <Header />
