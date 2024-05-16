@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-// import './App.css';
+import propTypes from "prop-types";
+import './App.css';
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
@@ -10,16 +10,18 @@ import CourseList from "../CourseList/CourseList";
 export default function App({ isLoggedIn=false }) {
   return (
       <>
-    <Notifications />
     <div className="App">
+    <div className="header">
       <Header />
-      isLoggedIn ? <CourseList /> : <Login />
+      <Notifications />
+    </div>
+      {isLoggedIn ? (<CourseList />) : (<Login />)}
       <Footer />
     </div>
       </>
   );
 }
 
-App.PropTypes = {
-  isLoggedIn: PropTypes.bool,
+App.propTypes = {
+  isLoggedIn: propTypes.bool,
 }

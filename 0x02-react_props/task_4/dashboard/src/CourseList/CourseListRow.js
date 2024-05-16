@@ -1,24 +1,32 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 
-export default function CourseListRow(isHeader=false, textFirstCell="", textSecondCell=null) {
+export default function CourseListRow({ isHeader=false, textFirstCell="", textSecondCell=null }) {
     let tr;
 
     if (isHeader) {
-      textSecondCell ?
+      if (textSecondCell !== null) {
         tr = (
-            <>
+            <tr>
                 <th>{textFirstCell}</th>
                 <th>{textSecondCell}</th> 
-            </>):
-        tr = (<th colSpan={2}>{textFirstCell}</th>)
+            </tr>
+        )
+       } else {
+        console.log(textFirstCell);
+        tr = (
+            <tr>
+                <th colSpan={2}>{textFirstCell}</th>
+            </tr>
+        )
+       }
     } else {
         tr = (
-            <>
+            <tr>
                 <td>{textFirstCell}</td>
                 <td>{textSecondCell}</td>
-            </>
+            </tr>
         )
     };
 
@@ -26,7 +34,7 @@ export default function CourseListRow(isHeader=false, textFirstCell="", textSeco
 }
 
 CourseListRow.propTypes = {
-    isHeader: PropTypes.bool,
-    textFirstCell: PropTypes.string.isRequired,
-    textSecondCell: PropTypes.string,
+    isHeader: propTypes.bool,
+    textFirstCell: propTypes.string.isRequired,
+    textSecondCell: propTypes.string,
 }
