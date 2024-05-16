@@ -21,7 +21,7 @@
     "webpack-dev-server": "^5.0.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "webpack-dev-server --mode development --config config/webpack.config.js",
     "test": "jest",
     "test-watch": "jest --watch"
   },
