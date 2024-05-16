@@ -10,7 +10,7 @@ import { getLatestNotification } from "../utils/utils";
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
