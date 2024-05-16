@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import './App.css';
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
@@ -10,24 +10,26 @@ import { getLatestNotification } from "../utils/utils";
 
 export default class App extends Component {
   constructor(props) {
-    super(props);
-    this.props.isLoggedIn = false;
-    this.props.logOut = function () {};
+    super(props)
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyDown);
+    if (typeof document !== undefined) {
+      document.addEventListener('keydown', this.handleKeyDown);
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyDown);
+    if (typeof document !== undefined) {
+      document.removeEventListener('keydown', this.handleKeyDown);
+    }
   }
 
-  handleChange() {
-    if (event.ctrlkey && event.key === 'h') {
+  handleKeyDown(event) {
+    if (event.ctrlKey && event.key === 'h') {
       alert('Logging you out');
-      this.logOut();
+      this.props.logOut();
     }
   }
 
@@ -56,24 +58,31 @@ export default class App extends Component {
         id: 3,
         type: "urgent",
         value: "",
-        html: { __html: getLatestNotification() },
+        html: getLatestNotification(),
       }
     ]
 
     return (
         <>
-      <Notifications listNotifications={listNotifications}/>
       <div className="App">
-        <Header />
-        {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : <Login />}
+        <div className="header">
+          <Header />
+          <Notifications displayDrawer={false} listNotifications={listNotifications}/>
+        </div>
+        {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : (<Login />)}
         <Footer />
       </div>
         </>
-    );
+    )
   }
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool,
-  logOut: PropTypes.func,
+  isLoggedIn: propTypes.bool,
+  logOut: propTypes.func,
+}
+
+App.defaultProps = {
+  isLoggedIn: false,
+  logOut: function () {}
 }

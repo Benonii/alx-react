@@ -9,7 +9,7 @@ module.exports = {
     },
     devServer: {
         static: {
-          directory: path.resolve(__dirname, '/src'),
+          directory: path.resolve(__dirname, '/dist'),
         },
         hot: true,
     },
@@ -51,4 +51,4 @@ module.exports = {
         })
       ],
       devtool: 'inline-source-map'
-}
+ }
