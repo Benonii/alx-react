@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import './App.css';
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
@@ -38,16 +38,18 @@ export default class App extends Component {
         id: 3,
         type: "urgent",
         value: "",
-        html: { __html: getLatestNotification() },
+        html: getLatestNotification(),
       }
     ]
 
     return (
         <>
-      <Notifications listNotifications={listNotifications}/>
       <div className="App">
-        <Header />
-        {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : <Login />}
+        <div className="header">
+          <Header />
+          <Notifications displayDrawer={false} listNotifications={listNotifications}/>
+        </div>
+        {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : (<Login />)}
         <Footer />
       </div>
         </>
@@ -56,5 +58,5 @@ export default class App extends Component {
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool,
+  isLoggedIn: propTypes.bool,
 }

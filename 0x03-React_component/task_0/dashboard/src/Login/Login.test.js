@@ -1,10 +1,11 @@
+import React from "react";
 import { shallow } from "enzyme";
 import Login from "./Login";
 
 describe('<Login />', () => {
     it('Renders without crashing', () => {
         const wrapper = shallow(<Login />);
-        expect(wrapper.exists().toBe(true));
+        expect(wrapper.exists()).toBe(true);
     });
     
     it('Renders two input tags', () => {
