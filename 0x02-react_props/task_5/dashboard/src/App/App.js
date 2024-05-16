@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-// import './App.css';
+import propTypes from "prop-types";
+import './App.css';
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
@@ -8,11 +8,11 @@ import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import { getLatestNotification } from "../utils/utils";
 
-function App({ isLoggedIn=false }) {
+export default function App({ isLoggedIn=false }) {
   const listCourses = [
-    {id: 1, name: "ES6", credit: 60},
-    {id: 2, name: "Webpack", credit:20},
-    {id: 3, name: 'React', credit: 40}
+    {id: 3, name: "ES6", credit: 60},
+    {id: 4, name: "Webpack", credit:20},
+    {id: 5, name: 'React', credit: 40}
   ]
 
   const listNotifications = [
@@ -38,18 +38,18 @@ function App({ isLoggedIn=false }) {
 
   return (
       <>
-    <Notifications listNotifications={listNotifications}/>
     <div className="App">
+    <div className="header">
       <Header />
-      {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : <Login />}
+      <Notifications displayDrawer={false} listNotifications={[]}/>
+    </div>
+      {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : (<Login />)}
       <Footer />
     </div>
       </>
   );
 }
 
-App.PropTypes = {
-  isLoggedIn: PropTypes.bool,
+App.propTypes = {
+  isLoggedIn: propTypes.bool,
 }
-
-export default App;

@@ -13,7 +13,7 @@ export default function App({ isLoggedIn=false }) {
     <div className="App">
     <div className="header">
       <Header />
-      <Notifications />
+      <Notifications displayDrawer={false}/>
     </div>
       {isLoggedIn ? (<CourseList />) : (<Login />)}
       <Footer />

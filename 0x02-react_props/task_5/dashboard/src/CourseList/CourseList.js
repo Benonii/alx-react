@@ -1,37 +1,37 @@
 import React from "react";
-import PropTypes from "prop-types"
-// import "./CourseList.css";
+import "./CourseList.css";
 import CourseListRow from "./CourseListRow";
 import CourseShape from "./CourseShape";
+import propTypes from "prop-types";
 
-export default function CourseList(listCourses=[]) {
+export default function CourseList({ listCourses=[] }) {
     if (listCourses.length === 0) {
-        return <tr><td>No course available yet</td></tr>
+        return <tr><td>No courses available yet</td></tr>
     } else {
-      return (
-            <>
+        return(
+                <>
             <table>
-                    <thead>
-                <CourseListRow isHeader={true} textFirstCell="Available courses" />
-                <CourseListRow isHeader={true} textFirstCell="Course name"
-                               textSecondCell="Credit" />
-            </thead>
+                <thead>
+                    <CourseListRow key={1} isHeader={true} textFirstCell="Available courses" />
+                    <CourseListRow key={2} isHeader={true} textFirstCell="Course name"
+                                   textSecondCell="Credit" />
+                </thead>
 
-            <tbody>
-                {listCourses.map((course) => {
-                    <CourseListRow key={course.id}
-                                   textFirstCell={course.name}
-                                   textSecondCell={course.credit} />
-                })}
-            </tbody>
-        
-        </table>
-            </>
+                <tbody>
+                    {listCourses.map((course) => {
+                        return (
+                        <CourseListRow key={course.id}
+                                       textFirstCell={course.name}
+                                       textSecondCell={course.credit} />
+                    )})}
+                </tbody>
+
+            </table>
+                </>
         )
     }
 }
 
-CourseList.PropTypes = {
-    listCourses: PropTypes.arrayOf(CourseShape),
+CourseList.propTypes = {
+    listCourses: propTypes.arrayOf(CourseShape),
 }
-

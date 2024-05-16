@@ -1,47 +1,62 @@
 import React from "react";
-import PropTypes from "prop-types";
-// import "./Notifications.css";
+import "./Notifications.css";
 import img from "../assets/close-icon.png"
 import NotificationItem from "./NotificationItem.js";
-import NotifiationItemShape from "./NotifiationItemShape.js";
+import NotificationItemShape from "./NotificationItemShape.js";
+import propTypes from "prop-types";
 
 export default function Notifications ({ displayDrawer=false, listNotifications=[] }) {
   if (listNotifications.length === 0) {
-    return <tr><td>No new notifications for now</td></tr>
+    return (
+      <div className='Notifications'>
+        <div className="menuItem">
+          <p>Your notifications</p>
+        </div>
+        {displayDrawer && ( 
+          <div className='Notifications-content'>
+            <tr><td>No new notifications for now</td></tr>
+          </div>)}
+        </div>
+    )
   } else {
     return (
         <>
-      <div className="mewnuItem">
-            <p>Your notifications</p>
-      </div>
-      
-      {displayDrawer && ( 
-          <div className='Notifications'>
-          <p>
-              Here is the list of notifications
-          </p>
-          <ul>
-            {listNotifications.map((notification) => {
-              <NotificationItem type={notification.type}
-                                value={notification.value}
-                                html={notification.html} />
-            })};     
-          </ul>
 
-          <button
-            style = {{right: '0'}}
-            aria-label="Close"
-            onClick={console.log('Close button has been clicked')}>
-              <img src={img} alt="close icon" />
-            </button>
-      </div>
-      )}
+        <div className='Notifications'>
+          <div className="menuItem">
+            <p>Your notifications</p>
+          </div>
+          {displayDrawer && ( 
+            <div className='Notifications-content'>
+              <p>
+                  Here is the list of notifications
+              </p>
+              <ul>
+                {listNotifications.map((notification) => {
+                  return (
+                    <NotificationItem key={notification.id}
+                                      type={notification.type}
+                                      value={notification.value}
+                                      html={notification.html} />
+                  );
+                })};    
+              </ul>
+
+              <button
+                style = {{right: '0'}}
+                aria-label="Close"
+                onClick={() => {console.log('Close button has been clicked')}}>
+                  <img src={img} alt="close icon" />
+                </button>
+              </div>
+          )}
+        </div>
         </>
     )
   }
 }
 
-Notifications.PropTypes = {
-  displayDrawer: PropTypes.bool,
-  listNotifications: PropTypes.arrayOf(NotifiationItemShape)
+Notifications.propTypes = {
+  displayDrawer: propTypes.bool,
+  listNotifications: propTypes.arrayOf(NotificationItemShape)
 }
