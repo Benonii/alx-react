@@ -1,22 +1,21 @@
+import React from "react";
 import { shallow } from 'enzyme';
-import Notifications from "./Notifications.js";
 import NotificationItem from './NotificationItem.js';
-
 
 describe('', () => {
     it('renders without crashing', () => {
-        const wrapper = shallow(<Notifications />);
+        const wrapper = shallow(<NotificationItem />);
         expect(wrapper.exists()).toBe(true);
     });
 
-    it('renders three list items', () => {
-        const wrapper = shallow(<Notifications />);
-        expect(wrapper.find(NotificationItem).length).toBe(3);
+    it('renders correct html for type and value', () => {
+        const wrapper = shallow(<NotificationItem type="default" value="test" />);
+        expect(wrapper.prop('data-notification-type')).toEqual('default');
+        expect(wrapper.text()).toEqual('test');
     });
 
     it('renders the text "Here is the list..."', () => {
-        const wrapper = <Notifications html={{ html: '<p>The right HTML</p>' }} />;
-        const notificationItem = wrapper.find(NotificationItem);
-        expect(notificationItem.dangerouslySetInnerHTML()).toEqual({ html: '<p>The right HTML</p>' });
+        const wrapper = shallow(<NotificationItem html='<p>The right HTML</p>' />);
+        expect(wrapper.html()).toEqual('<li><p>The right HTML</p></li>');
     });
 });

@@ -39,18 +39,18 @@ describe('<App /> when isLoggedIn is false', () => {
 
     it('Does not render CourseList', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find(CourseList)).toBe(false);
+        expect(wrapper.find(CourseList).length).toBe(0);
     });
 });
 
 describe('<App /> when isLoggedIn is true', () => {
     it('Does not contain the Login component', () => {
         const wrapper = shallow(<App isLoggedIn={true}/>);
-        expect(wrapper.find(Login)).toBe(false)
+        expect(wrapper.find(Login).length).toBe(0)
     });
 
     it('Contains the CourseList component', () => {
         const wrapper = shallow(<App isLoggedIn={true} />);
-        expect(wrapper.find(CourseList)).toBe(true);
+        expect(wrapper.find(CourseList).length).toBe(1);
     }); 
 });

@@ -1,5 +1,5 @@
 import React from "react";
-// import "./CourseList.css";
+import "./CourseList.css";
 import CourseListRow from "./CourseListRow";
 
 export default function CourseList() {
@@ -7,15 +7,15 @@ export default function CourseList() {
             <>
         <table>
             <thead>
-                <CourseListRow isHeader={true} textFirstCell="Available courses" />
-                <CourseListRow isHeader={true} textFirstCell="Course name"
+                <CourseListRow key={1} isHeader={true} textFirstCell="Available courses" />
+                <CourseListRow key={2} isHeader={true} textFirstCell="Course name"
                                textSecondCell="Credit" />
             </thead>
 
             <tbody>
-                <CourseListRow textFirstCell="ES6" textSecondCell="60" />
-                <CourseListRow textFirstCell="Webpack" textSecondCell="20" />
-                <CourseListRow textFirstCell="React" textSecondCell="40" />
+                <CourseListRow key={3} textFirstCell="ES6" textSecondCell="60" />
+                <CourseListRow key={4} textFirstCell="Webpack" textSecondCell="20" />
+                <CourseListRow key={5} textFirstCell="React" textSecondCell="40" />
             </tbody>
         
         </table>
