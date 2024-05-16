@@ -1,7 +1,18 @@
-.Notifications {
+.header {
+    display: flex;
+}
+
+.Notifications .menuItem {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.Notifications-content {
     position: relative;
     border: 1px dashed red;
-    padding: 30px;
+    padding: 10px 50px 10px 50px;
 }
 
 .Notifications button {
@@ -20,11 +31,11 @@
     width: 10px;
 }
 
-li[data-priority="default"] {
+li[data-notification-type="default"] {
     color: blue;
   }
   
-  li[data-priority="urgent"] {
+  li[data-notification-type="urgent"] {
     color: red;
   }
   

@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 
-export default PropTypes.shape({
-   id: PropTypes.number.isRequired,
-   name: PropTypes.string.isRequired,
-   credit: PropTypes.number.isRequired
+export default propTypes.shape({
+   id: propTypes.number.isRequired,
+   name: propTypes.string.isRequired,
+   credit: propTypes.number.isRequired
 }
 )

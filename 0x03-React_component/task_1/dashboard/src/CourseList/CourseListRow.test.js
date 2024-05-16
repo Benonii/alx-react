@@ -8,7 +8,8 @@ describe('<CourseListRow />', () => {
         const wrapper = shallow(<CourseListRow
             isHeader={true}
             textFirstCell="First cell" />)
-        expect(wrapper.prop('colSpan')).toBe(2); 
+        const thElement = wrapper.find('th');
+        expect(thElement.props().colSpan).toBe(2); 
     });
 
     it('Renders two rows of th elements', () => {
@@ -16,7 +17,7 @@ describe('<CourseListRow />', () => {
             isHeader={true}
             textFirstCell="First cell"
             textSecondCell="Second cell" />);
-        expect(wrapper.find('<th>').length).toBe(2);
+        expect(wrapper.find('th').length).toBe(2);
     });
 
     it('Renders two rows of td elementss', () => {
@@ -24,7 +25,7 @@ describe('<CourseListRow />', () => {
             isHeader={false}
             textFirstCell="First cell"
             textSecondCell="Second cell" />);
-            tableRow = wrapper.find('<tr>')
-        expect(tableRow.find('<td>').length).toBe(2);
+        const tableRow = wrapper.find('tr')
+        expect(tableRow.find('td').length).toBe(2);
     });
 });
