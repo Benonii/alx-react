@@ -10,5 +10,5 @@ export default function NotificationItem({ type, html, value }) {
     ) : list_item = (
         <li data-notification-type={type}>{value}</li>
     )
-    return list_item;
+    return list_item
 }
