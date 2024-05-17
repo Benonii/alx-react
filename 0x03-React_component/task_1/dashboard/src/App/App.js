@@ -8,7 +8,7 @@ import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import { getLatestNotification } from "../utils/utils";
 
-export default class App extends Component {
+export default class App extends React.component {
   constructor(props) {
     super(props)
     this.handleKeyDown = this.handleKeyDown.bind(this);

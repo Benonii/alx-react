@@ -1,6 +1,5 @@
 import React from "react"
 import { shallow } from 'enzyme';
-import { fireEvent } from "@testing-library/react";
 import App from './App.js';
 import Notifications from "../Notifications/Notifications.js";
 import Header from "../Header/Header.js";
@@ -54,4 +53,22 @@ describe('<App /> when isLoggedIn is true', () => {
         const wrapper = shallow(<App isLoggedIn={true} />);
         expect(wrapper.find(CourseList).length).toBe(1);
     });
+    
+    it('Calls the logOut funciton and displays the right alert message', () => {
+        const mockLogOut = jest.fn();
+        window.alert = jest.fn();
+        const wrapper = shallow(<App isLoggedIn={true}/>);
+        const dispatchEventSpy = jest.spyOn(document, 'dispatchEvent');
+
+        const event = new window.KeyboardEvent('keydown', { key: 'h', ctrlKey: true });
+        document.dispatchEvent(event);
+        wrapper.simulate('keydown', { event });
+
+        expect(dispatchEventSpy).toHaveBeenCalledWith(event);
+
+        expect(mockLogOut).toHaveBeenCalled();
+        expect(window.alert).toHaveBeenCalledWith('Logging you out');
+
+        window.alert.mockRestore();
+    })
 });
