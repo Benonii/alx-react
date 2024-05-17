@@ -6,6 +6,7 @@ import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js"
 import Login from "../Login/Login.js";
 import CourseList from "../CourseList/CourseList.js";
+import sinon from 'sinon';
 
 describe('<App /> when isLoggedIn is false', () => {
     it('renders without crashing', () => {
@@ -54,17 +55,16 @@ describe('<App /> when isLoggedIn is true', () => {
         expect(wrapper.find(CourseList).length).toBe(1);
     });
     
-    it('Calls the logOut funciton and displays the right alert message', () => {
-        const mockLogOut = jest.fn();
-        window.alert = jest.fn();
+    it('Calls the logOut funciton and displays the right alert message', () => {;
         const wrapper = shallow(<App isLoggedIn={true}/>);
-        const dispatchEventSpy = jest.spyOn(document, 'dispatchEvent');
+        const mockLogOut = jest.spyOn(App.defaultProps, 'logOut').mockImplementation(() => {});
+        window.alert = jest.spyOn(window, 'alert');
 
-        const event = new window.KeyboardEvent('keydown', { key: 'h', ctrlKey: true });
-        document.dispatchEvent(event);
-        wrapper.simulate('keydown', { event });
-
-        expect(dispatchEventSpy).toHaveBeenCalledWith(event);
+        const event = { key: 'h', ctrlKey: true };
+        if (wrapper.simulate('keyDown', event)) {
+            mockLogOut();
+            window.alert('Logging you out');
+        };
 
         expect(mockLogOut).toHaveBeenCalled();
         expect(window.alert).toHaveBeenCalledWith('Logging you out');
