@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React,  from "react";
 import propTypes from "prop-types";
 import './App.css';
 import Notifications from "../Notifications/Notifications";
@@ -8,7 +8,7 @@ import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import { getLatestNotification } from "../utils/utils";
 
-export default class App extends React.component {
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.handleKeyDown = this.handleKeyDown.bind(this);
