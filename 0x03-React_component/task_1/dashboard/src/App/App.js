@@ -10,15 +10,14 @@ import { getLatestNotification } from "../utils/utils";
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   static defaultProps =  {
-    logOut: function () {},
-  }
-
-  
+    isLoggedIn: false,
+    logOut: function () {console.log()},
+   }
 
   componentDidMount() {
     if (typeof document !== undefined) {
@@ -33,9 +32,10 @@ export default class App extends Component {
   }
 
   handleKeyDown(event) {
+    event.preventDefault();
     if (event.ctrlKey && event.key === 'h') {
-      alert('Logging you out');
       this.props.logOut();
+      alert('Logging you out');
     }
   }
 
@@ -88,7 +88,7 @@ App.propTypes = {
   logOut: propTypes.func,
 }
 
-App.defaultProps = {
-  isLoggedIn: false,
-  logOut: function () {}
-}
+// App.defaultProps = {
+//   isLoggedIn: false,
+//   logOut: function () {console.log("Logging out..")}
+// }
