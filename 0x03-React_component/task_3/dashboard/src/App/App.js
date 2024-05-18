@@ -6,7 +6,9 @@ import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import { getLatestNotification } from "../utils/utils";
+import BodySection from "../BodySection/BodySection";
 
 export default class App extends Component {
   constructor(props) {
@@ -75,7 +77,19 @@ export default class App extends Component {
           <Header />
           <Notifications displayDrawer={false} listNotifications={listNotifications}/>
         </div>
-        {isLoggedIn ? (<CourseList listCourses={listCourses}/>) : (<Login />)}
+        {isLoggedIn ? (
+        <BodySectionWithMarginBottom title="Course list">
+          <CourseList listCourses={listCourses}/>
+        </BodySectionWithMarginBottom>
+        ) : (
+          <BodySectionWithMarginBottom title="Log in to continue">
+            <Login />
+          </BodySectionWithMarginBottom>
+        )}
+
+        <BodySection title="News from the School">
+          <p>Random Text</p>
+        </BodySection>
         <Footer />
       </div>
         </>
