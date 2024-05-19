@@ -92,7 +92,6 @@ describe('<Notifiications />', () => {
         const consoleSpy = jest.spyOn(console, 'log');
 
         const notification = wrapper.instance();
-        const markAsReadSpy = jest.spyOn(notification, 'markAsRead');
 
         wrapper.find(NotificationItem).at(0).props().markAsRead();
 
