@@ -25,7 +25,7 @@ export default function CourseListRow({ isHeader=false, textFirstCell="", textSe
         console.log(textFirstCell);
         tr = (
             <tr style={headerStyle}>
-                <th colSpan={2}>{textFirstCell}</th>
+                <th colSpan="2">{textFirstCell}</th>
             </tr>
         )
        }
