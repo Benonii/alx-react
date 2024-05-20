@@ -9,7 +9,7 @@ describe('<CourseListRow />', () => {
             isHeader={true}
             textFirstCell="First cell" />)
         const thElement = wrapper.find('th');
-        expect(thElement.props().colSpan).toBe(2); 
+        expect(thElement.props().colSpan).toBe("2"); 
     });
 
     it('Renders two rows of th elements', () => {

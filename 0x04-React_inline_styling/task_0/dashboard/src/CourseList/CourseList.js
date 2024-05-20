@@ -13,7 +13,6 @@ export default function CourseList({ listCourses=[] }) {
             <table className="CourseList">
                 <thead className="header">
                     <CourseListRow key={1} isHeader={true} textFirstCell="Available courses" />
-                    <br/>
                     <CourseListRow key={2} isHeader={true} textFirstCell="Course name"
                                    textSecondCell="Credit" />
                 </thead>
