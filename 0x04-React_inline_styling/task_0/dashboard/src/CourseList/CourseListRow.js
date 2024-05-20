@@ -6,7 +6,7 @@ export default function CourseListRow({ isHeader=false, textFirstCell="", textSe
     let tr;
 
     const rowStyle = {
-        backgroundColor: "#f5f5ab",
+        backgroundColor: "#f5f5f5ab",
     }
 
     const headerStyle = {
