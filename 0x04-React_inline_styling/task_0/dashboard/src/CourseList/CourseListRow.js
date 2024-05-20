@@ -21,7 +21,7 @@ export default function CourseListRow({ isHeader=false, textFirstCell="", textSe
                 <th>{textSecondCell}</th> 
             </tr>
         )
-       } else {
+      } else {
         console.log(textFirstCell);
         tr = (
             <tr style={headerStyle}>
