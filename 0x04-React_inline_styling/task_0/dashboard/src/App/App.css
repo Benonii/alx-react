@@ -1,0 +1,5 @@
+.App .header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid #ff0000;
+}
