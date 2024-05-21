@@ -1,0 +1,41 @@
+/* .header {
+    display: flex;
+}
+
+.Notifications .menuItem {
+    text-align: right;
+    margin-right: 10px;
+    font-size: 120%;
+    font-weight: 500;
+}
+
+.Notifications-content {
+    position: relative;
+    border: 1px dashed red;
+    padding: 10px 50px 10px 50px;
+}
+
+.Notifications button {
+    margin-top: 10px;
+    margin-right: 15px;
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    right: 0;
+}
+
+.Notifications button img {
+    width: 10px;
+}
+
+li[data-notification-type="default"] {
+    color: blue;
+}
+  
+li[data-notification-type="urgent"] {
+    color: red;
+}
+   */
