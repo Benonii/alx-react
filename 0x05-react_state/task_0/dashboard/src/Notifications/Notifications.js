@@ -11,9 +11,6 @@ export default class Notifications extends Component {
     super(props)
     this.handleDisplayDrawer = this.props.handleDisplayDrawer;
     this.handleHideDrawer = this.props.handleHideDrawer;
-  //   this.state = {
-  //     listNotifications: this.props.listNotifications,
-  //   }
   }
 
   static defaultProps = {
@@ -26,14 +23,6 @@ export default class Notifications extends Component {
   markAsRead(id) {
     console.log(`Notification ${id} has been marked as read`);
   }
-
-  // shouldComponentUpdate() {
-  //   if (this.props.listNotifications > this.state.listNotifications) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
 
   render() {
     const { displayDrawer, listNotifications } = this.props;
@@ -74,8 +63,7 @@ export default class Notifications extends Component {
                 </ul>
 
                 <button
-                  data-testid="close-button"
-                  className={classNames(css(styles.button), 'closeBtn')}
+                  className={classNames('closeBtn', css(styles.button))}
                   style = {{right: '0'}}
                   aria-label="Close"
                   onClick={this.handleHideDrawer}>
