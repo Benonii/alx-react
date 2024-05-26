@@ -111,19 +111,21 @@ describe('<Notifiications />', () => {
         expect(handleDisplayDrawer).toHaveBeenCalled();
     });
 
-    // it('calls handleHideDrawer when the close button is clicked', () => {
-    //     const handleDisplayDrawer = jest.fn();
-    //     const handleHideDrawer = jest.fn();
-    //     const wrapper = shallow(<Notifications 
-    //                                     displayDrawer={false}
-    //                                     handleDisplayDrawer={handleDisplayDrawer}
-    //                                     handleHideDrawer={handleHideDrawer}
-    //                                     />);
+    it('calls handleHideDrawer when the close button is clicked', () => {
+        const handleDisplayDrawer = jest.fn();
+        const handleHideDrawer = jest.fn();
+        const wrapper = shallow(<Notifications 
+                                        displayDrawer={true}
+                                        handleDisplayDrawer={handleDisplayDrawer}
+                                        handleHideDrawer={handleHideDrawer}
+                                        />);
+        
+        const notifications = wrapper.instance();
+        expect(notifications.props.displayDrawer).toBe(true)
+        const closeBtn = notifications.find('.closeBtn');       
 
-    //     const closeBtn = wrapper.find('[data-testid="close-button"]');       
-
-    //     closeBtn.simulate('click');
-    //     expect(handleHideDrawer).toHaveBeenCalled();
-    // });
+        closeBtn.simulate('click');
+        expect(handleHideDrawer).toHaveBeenCalled();
+    });
     
 });

@@ -83,11 +83,6 @@ describe('<App /> when isLoggedIn is true', () => {
 
         app.handleDisplayDrawer();
         expect(wrapper.state().displayDrawer).toBe(true);
-    });
-
-    it('Changed displayDrawer to false when running handleHideDrawer', () => {
-        const wrapper = shallow(<App />);
-        const app = wrapper.instance();
 
         app.handleHideDrawer();
         expect(wrapper.state().displayDrawer).toBe(false);
