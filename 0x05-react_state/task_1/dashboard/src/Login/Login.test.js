@@ -36,5 +36,4 @@ describe('<Login />', () => {
 
     //     expect(submitButton.prop('disabled')).toBe(false);
     // })
-    
 });

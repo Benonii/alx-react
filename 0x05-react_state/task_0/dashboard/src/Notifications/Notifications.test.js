@@ -119,10 +119,10 @@ describe('<Notifiications />', () => {
                                         handleDisplayDrawer={handleDisplayDrawer}
                                         handleHideDrawer={handleHideDrawer}
                                         />);
-        
+
         const notifications = wrapper.instance();
         expect(notifications.props.displayDrawer).toBe(true)
-        const closeBtn = notifications.find('.closeBtn');       
+        const closeBtn =
 
         closeBtn.simulate('click');
         expect(handleHideDrawer).toHaveBeenCalled();
