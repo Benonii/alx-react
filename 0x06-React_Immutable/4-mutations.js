@@ -1,4 +1,4 @@
-const { Map } = require('immutable');
+import { Map } from 'immutable';
 
 const map = Map({
   1: 'Liam',
@@ -6,7 +6,9 @@ const map = Map({
   3: 'Elijah',
   4: 'Oliver',
   5: 'Jacob',
-  6: 'Lucas'
+  6: 'Lucas',
 });
 
 const map2 = map.set(2, 'Benjamin').set(5, 'Oliver');
+
+export default map2;
