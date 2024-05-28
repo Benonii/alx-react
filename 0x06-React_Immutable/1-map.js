@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
 
-function getImmutableObject (object) {
+function getImmutableObject(object) {
   return Map(object);
 }
 
