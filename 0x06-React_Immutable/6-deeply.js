@@ -1,11 +1,11 @@
-const {List, Map } = require('immutable');
+const { List, Map } = require('immutable');
 
-function mergeDeeplyElements(page1, page2) {
-    const map1 = Map(page1);
-    const map2 = Map(page2);
+export default function mergeDeeplyElements (page1, page2) {
+  const map1 = Map(page1);
+  const map2 = Map(page2);
 
-    const deepMerge = map1.mergeDeep(map2);
-    return List(deepMerge.values());
+  const deepMerge = map1.mergeDeep(map2);
+  return List(deepMerge.values());
 }
 
 // const page1 = {
@@ -19,7 +19,7 @@ function mergeDeeplyElements(page1, page2) {
 //       }
 //     },
 //   };
-  
+
 //   const page2 = {
 //     'user-1': {
 //       likes: {
