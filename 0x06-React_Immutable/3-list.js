@@ -1,9 +1,11 @@
-const { List } = require('immutable');
+import { List } from 'immutable';
 
-export function getLostObject (array) {
+function getListObject(array) {
   return List(array);
 }
 
-export function addElementToList (list, element) {
+function addElementToList(list, element) {
   return List(list.append(element));
 }
+
+module.exports = [getListObject, addElementToList];
