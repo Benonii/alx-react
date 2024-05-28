@@ -11,4 +11,4 @@ const map = Map({
 
 const map2 = map.set(2, 'Benjamin').set(4, 'Oliver');
 
-export default app2;
+export default map2;
