@@ -1,6 +1,8 @@
 import { fromJS } from 'immutable';
 
-export default function accessImmutableObject(object, array) {
+function accessImmutableObject(object, array) {
   const map = fromJS(object);
   return array.reduce((acc, key) => acc && acc.get(key), map);
 }
+
+module.exports = accessImmutableObject;
