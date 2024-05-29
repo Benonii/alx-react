@@ -1,6 +1,13 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
-export default function accessImmutableObject(object, array) {
-  const map = Map(object);
+function accessImmutableObject(object, array) {
+  const map = fromJS(object);
   return array.reduce((acc, key) => acc && acc.get(key), map);
 }
+
+console.log(accessImmutableObject({
+  name: {
+       first: "Guillaume",
+       last: "Salva"
+  }
+}, ['name', 'first']))
