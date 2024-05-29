@@ -5,5 +5,5 @@ export default function mergeDeeplyElements(page1, page2) {
   const map2 = Map(page2);
 
   const deepMerge = map1.mergeDeep(map2);
-  return deepMerge.toList();
+  return deepMerge;
 }
