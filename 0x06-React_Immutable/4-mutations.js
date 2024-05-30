@@ -11,4 +11,4 @@ const map = Map({
 
 const map2 = map.set(2, 'Benjamin').set(4, 'Oliver');
 
-module.exports = { map, map2 }
+module.exports = { map, map2 };
