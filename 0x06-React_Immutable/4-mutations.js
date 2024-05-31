@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+const { fromJS } = require('immutable');
 
 export const map = fromJS({
   1: 'Liam',
