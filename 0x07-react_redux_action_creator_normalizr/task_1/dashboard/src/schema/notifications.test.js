@@ -1,6 +1,6 @@
 import notifications from '../../../../notifications.json';
 import getAllNotificationsByUser from "./notifications";
-import { notification } from './notifications';
+import { notification, user } from './notifications';
 import { normalize } from 'normalizr';
 
 
@@ -47,5 +47,27 @@ describe('getAllNotificationsByUser', () => {
       ]
 
       expect(normalizedData.result).toEqual(expectedResult);
+    });
+
+    it('has the correct users entity', () => {
+      const userId = '5debd76480edafc8af244228';
+      const normalizedData = normalize(notifications, [user]);
+      const userObject = normalizedData.entities.users[userId].author;
+      console.log(userObject);
+      // const actualUser = {
+      //   name: userObject.name,
+      //   email: userObject.email,
+      //   picture: userObject.picture,
+      //   age: userObject.age,
+      // }
+
+      const expectedUser = {
+          name: { first: 'Poole', last: 'Sanders' },
+          email: 'poole.sanders@holberton.nz',
+          id: "5debd764a7c57c7839d722e9",
+          picture: 'http://placehold.it/32x32',
+          age: 25,
+        };
+      expect(userObject).toEqual(expectedUser);
     });
 });
