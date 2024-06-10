@@ -14,6 +14,27 @@ export const unSelectCourse = (index) => ({
     index: index,
 });
 
+export const fetchCourseSuccess = () => ({
+    type: actionTypes.FETCH_COURSE_SUCCESS,
+    data: [
+      {
+        id: 1,
+        name: "ES6",
+        credit: 60
+      },
+      {
+        id: 2,
+        name: "Webpack",
+        credit: 20
+      },
+      {
+        id: 3,
+        name: "React",
+        credit: 40
+      }
+    ]
+});
+
 const boundUnSelectCourse = bindActionCreators(unSelectCourse, dispatch);
 
 export { boundSelectCourse, boundUnSelectCourse};

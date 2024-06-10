@@ -1,4 +1,6 @@
 import * as actionTypes from '../actions/uiActionTypes';
+import * as actions from '../actions/uiActionCreators';
+import { selectCourse } from '../actions/courseActionCreators';
 import uiReducer from './uiReducer';
 
 describe('uiReducer', () => {
@@ -22,24 +24,22 @@ describe('uiReducer', () => {
             user: {}
         };
 
-        expect(uiReducer(actionTypes.SELECT_COURSE)).toEqual(testInitialState);
+        expect(uiReducer(testInitialState, selectCourse)).toEqual(testInitialState);
     });
 
-    it('changes isNotificationDrawerVisible when DISPLAY_NOTIFICATION_DRAWER is passed', () => {
+    it('changes isNotificationDrawerVisible when DISPLAY(HIDE)_NOTIFICATION_DRAWER is passed', () => {
         const testInitialState = {
             isNotificationDrawerVisible: false,
             isUserLoggedIn: false,
             user: {}
         };
-        let reducedState = uiReducer(testInitialState, actionTypes.DISPLAY_NOTIFICATION_DRAWER);
 
+        let reducedState = uiReducer(testInitialState, actions.displayNotificationDrawer()).toJS();
+        console.log(reducedState)
         expect(reducedState.isNotificationDrawerVisible).toEqual(true);
 
-        reducedState = uiReducer(reducedState, actionTypes.HIDE_NOTIFICATION_DRAWER);
-
+        reducedState = uiReducer(reducedState, actions.hideNotificationDrawer()).toJS();
         expect(reducedState.isNotificationDrawerVisible).toEqual(false);
 
     })
-
-
 });
