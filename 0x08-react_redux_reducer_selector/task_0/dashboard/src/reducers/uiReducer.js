@@ -7,13 +7,13 @@ const initialState = {
 };
 
 export default function uiReducer(state=initialState, action) {
-    switch (action) {
+    switch (action.type) {
         case actionTypes.DISPLAY_NOTIFICATION_DRAWER: {
             return {
                 ...state,
                 isNotificationDrawerVisible: true,
             }
-        }
+        };
 
         case actionTypes.HIDE_NOTIFICATION_DRAWER: {
             return {
