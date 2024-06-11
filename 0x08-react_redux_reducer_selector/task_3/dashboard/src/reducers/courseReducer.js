@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/courseActionTypes';
+import { Map } from 'immutable';
 
 const initialState = [];
 
