@@ -6,6 +6,8 @@ import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js"
 import Login from "../Login/Login.js";
 import CourseList from "../CourseList/CourseList.js";
+import { mapStateToProps } from './App.js';
+import { fromJS } from "immutable";
 
 describe('<App /> when user is not logged in', () => {
     it('renders without crashing', () => {
@@ -106,4 +108,13 @@ describe('<App /> when user user is logged in', () => {
         expect(wrapper.state().listNotifications.length).toBe(0);
 
     });
+});
+
+describe('mapToState()', () => {
+    it('returns the right object when passing state', () => {
+        let state = fromJS({ isLoggedIn: true});
+
+        expect(mapStateToProps(state)).toEqual({ isLoggedIn: true });
+    });
+    
 });
