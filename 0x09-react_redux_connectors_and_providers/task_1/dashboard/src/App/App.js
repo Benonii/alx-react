@@ -11,6 +11,7 @@ import { uiReducer } from '../reducers/uiReducer'
 import BodySection from "../BodySection/BodySection";
 import AppContext from "./AppContext";
 import { connect } from "react-redux";
+import * as actionCreators from "../actions/uiActionCreators";
 
 export default class App extends Component {
   constructor(props) {
@@ -133,8 +134,8 @@ export default class App extends Component {
               displayDrawer={this.props.displayDrawer}
               listNotifications={this.state.listNotifications}
               markNotificationsAsRead={this.markNotificationsAsRead}
-              handleDisplayDrawer={this.handleDisplayDrawer}
-              handleHideDrawer={this.handleHideDrawer} />
+              handleDisplayDrawer={this.props.displayNotificationDrawer}
+              handleHideDrawer={this.props.hideNotificationDrawer} />
           </div>
 
           <div className={css(styles.body)}>
@@ -190,4 +191,12 @@ export const mapStateToProps = (state) => ({
   displayDrawer: state.get('isNotificationDrawerVisible'),
 });
 
-connect(mapStateToProps)(App);
+const displayNotificationDrawer = actionCreators.displayNotificationDrawer;
+const hideNotificationDrawer = actionCreators.hideNotificationDrawer;
+
+export const mapDispatchToProps = {
+  displayNotificationDrawer,
+  hideNotificationDrawer,
+}
+
+connect(mapStateToProps, mapDispatchToProps)(App);
