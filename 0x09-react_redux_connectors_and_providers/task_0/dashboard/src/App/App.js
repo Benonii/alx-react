@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import { getLatestNotification } from "../utils/utils";
-import { uiReducer } from '../reducers/uiReducer'
+import uiReducer from '../reducers/uiReducer'
 import BodySection from "../BodySection/BodySection";
 import AppContext from "./AppContext";
 import { connect } from "react-redux";
