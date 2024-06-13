@@ -8,15 +8,16 @@ import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import { getLatestNotification } from "../utils/utils";
-import { uiReducer } from '../reducers/uiReducer'
+import uiReducer from '../reducers/uiReducer'
 import BodySection from "../BodySection/BodySection";
 import AppContext from "./AppContext";
 import { connect } from "react-redux";
-import * as actionCreators from "../actions/uiActionCreators";
+import {displayNotificationDrawer, hideNotificationDrawer} from "../actions/uiActionCreators";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
+    console.log('Props:', this.props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.logIn = this.logIn.bind(this);
     this.logOut = this.logOut.bind(this);
@@ -57,6 +58,7 @@ export default class App extends Component {
 
   static defaultProps =  {
     isLoggedIn: false,
+    displayDrawer: false,
     displayNotificationDrawer: () => {},
     hideNotificationDrawer: () => {},
    }
@@ -98,17 +100,17 @@ export default class App extends Component {
     }
   }
 
-  // handleDisplayDrawer() {
-  //   this.setState({
-  //     displayDrawer: true,
-  //   });
-  // }
+  handleDisplayDrawer() {
+    this.setState({
+      displayDrawer: true,
+    });
+  }
 
-  // handleHideDrawer() {
-  //   this.setState({
-  //     displayDrawer: false,
-  //   });
-  // }
+  handleHideDrawer() {
+    this.setState({
+      displayDrawer: false,
+    });
+  }
 
   markNotificationsAsRead(id) {
     const unreadNotifications = [];
@@ -123,7 +125,9 @@ export default class App extends Component {
   }
 
   render() {
-    const isLoggedIn = this.state.user.isLoggedIn
+    const isLoggedIn = this.state.user.isLoggedIn;
+    const displayNotificationDrawer = this.props.displayNotificationDrawer;
+    const hideNotificationDrawer = this.props.hideNotificationDrawer;
     const listCourses = [
       {id: 1, name: "ES6", credit: 60},
       {id: 2, name: "Webpack", credit:20},
@@ -139,8 +143,8 @@ export default class App extends Component {
               displayDrawer={this.props.displayDrawer}
               listNotifications={this.state.listNotifications}
               markNotificationsAsRead={this.markNotificationsAsRead}
-              handleDisplayDrawer={this.props.displayNotificationDrawer}
-              handleHideDrawer={this.props.hideNotificationDrawer} />
+              handleDisplayDrawer={displayNotificationDrawer}
+              handleHideDrawer={hideNotificationDrawer} />
           </div>
 
           <div className={css(styles.body)}>
@@ -174,6 +178,7 @@ export default class App extends Component {
 
 App.propTypes = {
   isLoggedIn: propTypes.bool,
+  displayDrawer: propTypes.bool,
   displayNotificationDrawer: propTypes.func,
   hideNotificationDrawer: propTypes.func,
 };
@@ -204,12 +209,9 @@ export const mapStateToProps = (state) => ({
   displayDrawer: state.get('isNotificationDrawerVisible'),
 });
 
-const displayNotificationDrawer = actionCreators.displayNotificationDrawer;
-const hideNotificationDrawer = actionCreators.hideNotificationDrawer;
-
 export const mapDispatchToProps = {
   displayNotificationDrawer,
   hideNotificationDrawer,
 }
 
-connect(mapStateToProps, mapDispatchToProps)(App);
+connect(mapStateToProps(uiReducer()), mapDispatchToProps)(App);

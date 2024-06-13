@@ -184,4 +184,4 @@ const styles = StyleSheet.create({
 });
 
 export const mapStateToProps = (state) => ({ isLoggedIn: state.get('isLoggedIn') });
-connect(mapStateToProps)(App);
+connect(mapStateToProps(uiReducer()))(App);

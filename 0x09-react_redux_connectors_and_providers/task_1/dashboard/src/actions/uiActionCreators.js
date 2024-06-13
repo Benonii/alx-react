@@ -1,8 +1,8 @@
 import * as actionTypes from './uiActionTypes';
 import { bindActionCreators } from 'redux';
-import { dispatch } from 'react-redux';
-import { fetchMock } from 'fetch-mock';
+import { useDispatch } from 'react-redux';
 
+const dispatch = useDispatch;
 export const login = (email, password) => {
     return {
         type: actionTypes.LOGIN,
