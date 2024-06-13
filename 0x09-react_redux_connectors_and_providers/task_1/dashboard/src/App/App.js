@@ -17,7 +17,6 @@ import {displayNotificationDrawer, hideNotificationDrawer} from "../actions/uiAc
 export default class App extends Component {
   constructor(props) {
     super(props);
-    console.log('Props:', this.props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.logIn = this.logIn.bind(this);
     this.logOut = this.logOut.bind(this);
