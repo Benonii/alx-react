@@ -8,19 +8,18 @@ import Header from "../Header/Header";
 import CourseList from "../CourseList/CourseList";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import { getLatestNotification } from "../utils/utils";
-import uiReducer from '../reducers/uiReducer'
 import BodySection from "../BodySection/BodySection";
 import AppContext from "./AppContext";
 import { connect } from "react-redux";
-import {displayNotificationDrawer, hideNotificationDrawer} from "../actions/uiActionCreators";
+import {displayNotificationDrawer, hideNotificationDrawer, loginRequest} from "../actions/uiActionCreators";
+import uiReducer from "../reducers/uiReducer";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    console.log('Props:', this.props);
     this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.logIn = this.logIn.bind(this);
-    this.logOut = this.logOut.bind(this);
+    // this.logIn = this.logIn.bind(this);
+    // this.logOut = this.logOut.bind(this);
     this.markNotificationsAsRead = this.markNotificationsAsRead.bind(this);
     this.state = {
       listNotifications: [
@@ -49,7 +48,7 @@ export default class App extends Component {
         password: '',
         isLoggedIn: false,
       },
-      logOut: this.logOut,
+      // logOut: this.logOut,
     }
 
     // this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
@@ -63,22 +62,22 @@ export default class App extends Component {
     hideNotificationDrawer: () => {},
    }
 
-  logIn(email, password) {
-    const user = {email: email, password: password, isLoggedIn: true}
-    this.setState({
-      user: user,
-    })
-  }
+  // logIn(email, password) {
+  //   const user = {email: email, password: password, isLoggedIn: true}
+  //   this.setState({
+  //     user: user,
+  //   })
+  // }
 
-  logOut() {
-    this.setState({
-      user: {
-        email: '',
-        password: '',
-        isLoggedIn: false,
-      }
-    })
-  }
+  // logOut() {
+  //   this.setState({
+  //     user: {
+  //       email: '',
+  //       password: '',
+  //       isLoggedIn: false,
+  //     }
+  //   })
+  // }
 
   componentDidMount() {
     if (typeof document !== undefined) {
@@ -126,6 +125,7 @@ export default class App extends Component {
 
   render() {
     const isLoggedIn = this.state.user.isLoggedIn;
+    const logIn = this.props.login
     const displayNotificationDrawer = this.props.displayNotificationDrawer;
     const hideNotificationDrawer = this.props.hideNotificationDrawer;
     const listCourses = [
@@ -160,7 +160,7 @@ export default class App extends Component {
               </>
             ) : (
               <BodySectionWithMarginBottom title="Log in to continue">
-                <Login logIn={this.logIn}/>
+                <Login logIn={logIn}/>
               </BodySectionWithMarginBottom>
             )}
             <div className="news">
@@ -207,11 +207,13 @@ const styles = StyleSheet.create({
 export const mapStateToProps = (state) => ({
   isLoggedIn: state.get('isLoggedIn'),
   displayDrawer: state.get('isNotificationDrawerVisible'),
+  login: loginRequest,
 });
 
-export const mapDispatchToProps = {
+export const mapDisplayNotificationDispatchToProps = {
   displayNotificationDrawer,
   hideNotificationDrawer,
+  loginRequest,
 }
 
-connect(mapStateToProps(uiReducer()), mapDispatchToProps)(App);
+connect(mapStateToProps(uiReducer()), mapDisplayNotificationDispatchToProps)(App);
