@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, css } from 'aphrodite';
+import propTypes from 'prop-types';
 import Notifications from "../Notifications/Notifications";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
@@ -41,7 +42,7 @@ export default class App extends Component {
           html: getLatestNotification(),
         }
       ],
-      displayDrawer: false,
+      // displayDrawer: false,
       user: {
         email: '',
         password: '',
@@ -50,11 +51,15 @@ export default class App extends Component {
       logOut: this.logOut,
     }
 
+    // this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
+    // this.handleHideDrawer = this.handleHideDrawer.bind(this);
+  };
 
-
-    this.handleDisplayDrawer = this.handleDisplayDrawer.bind(this);
-    this.handleHideDrawer = this.handleHideDrawer.bind(this);
-  }
+  static defaultProps =  {
+    isLoggedIn: false,
+    displayNotificationDrawer: () => {},
+    hideNotificationDrawer: () => {},
+   }
 
   logIn(email, password) {
     const user = {email: email, password: password, isLoggedIn: true}
@@ -93,17 +98,17 @@ export default class App extends Component {
     }
   }
 
-  handleDisplayDrawer() {
-    this.setState({
-      displayDrawer: true,
-    });
-  }
+  // handleDisplayDrawer() {
+  //   this.setState({
+  //     displayDrawer: true,
+  //   });
+  // }
 
-  handleHideDrawer() {
-    this.setState({
-      displayDrawer: false,
-    });
-  }
+  // handleHideDrawer() {
+  //   this.setState({
+  //     displayDrawer: false,
+  //   });
+  // }
 
   markNotificationsAsRead(id) {
     const unreadNotifications = [];
@@ -166,6 +171,14 @@ export default class App extends Component {
     )
   }
 }
+
+App.propTypes = {
+  isLoggedIn: propTypes.bool,
+  displayNotificationDrawer: propTypes.func,
+  hideNotificationDrawer: propTypes.func,
+};
+
+
 
 const styles = StyleSheet.create({
   header: {
