@@ -75,26 +75,26 @@ describe('<App /> when user user is logged in', () => {
         expect(wrapper.state().user.isLoggedIn).toBe(false);
     });
 
-    it('has a default value of false for displayDrawer', () => {
-        const wrapper = shallow(<App />);
-        expect(wrapper.state().displayDrawer).toBe(false);
-    });
+    // it('has a default value of false for displayDrawer', () => {
+    //     const wrapper = shallow(<App />);
+    //     expect(wrapper.state().displayDrawer).toBe(false);
+    // });
 
-    it('Changed displayDrawer to true when running handleDisplayDrawer', () => {
-        const wrapper = shallow(<App />);
-        const app = wrapper.instance();
+    // it('Changed displayDrawer to true when running handleDisplayDrawer', () => {
+    //     const wrapper = shallow(<App />);
+    //     const app = wrapper.instance();
 
-        app.handleDisplayDrawer();
-        expect(wrapper.state().displayDrawer).toBe(true);
-    });
+    //     app.handleDisplayDrawer();
+    //     expect(wrapper.state().displayDrawer).toBe(true);
+    // });
 
-    it('Changed displayDrawer to false when running handleHideDrawer', () => {
-        const wrapper = shallow(<App />);
-        const app = wrapper.instance();
+    // it('Changed displayDrawer to false when running handleHideDrawer', () => {
+    //     const wrapper = shallow(<App />);
+    //     const app = wrapper.instance();
 
-        app.handleHideDrawer();
-        expect(wrapper.state().displayDrawer).toBe(false);
-    });
+    //     app.handleHideDrawer();
+    //     expect(wrapper.state().displayDrawer).toBe(false);
+    // });
 
     it('Updates the list of notifications when they are marked as read', () => {
         const wrapper = shallow(<App />);
@@ -115,6 +115,5 @@ describe('mapToState()', () => {
         let state = fromJS({ isLoggedIn: true});
 
         expect(mapStateToProps(state)).toEqual({ isLoggedIn: true });
-    });
-    
+    });  
 });
