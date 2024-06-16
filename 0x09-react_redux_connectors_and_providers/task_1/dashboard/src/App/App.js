@@ -99,17 +99,17 @@ export default class App extends Component {
     }
   }
 
-  handleDisplayDrawer() {
-    this.setState({
-      displayDrawer: true,
-    });
-  }
+  // handleDisplayDrawer() {
+  //   this.setState({
+  //     displayDrawer: true,
+  //   });
+  // }
 
-  handleHideDrawer() {
-    this.setState({
-      displayDrawer: false,
-    });
-  }
+  // handleHideDrawer() {
+  //   this.setState({
+  //     displayDrawer: false,
+  //   });
+  // }
 
   markNotificationsAsRead(id) {
     const unreadNotifications = [];
