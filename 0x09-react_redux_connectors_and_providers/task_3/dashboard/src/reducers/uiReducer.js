@@ -25,7 +25,6 @@ export default function uiReducer(state=initialState, action) {
 
         case actionTypes.LOGIN_SUCCESS: {
             return initialState.withMutations((state) => {
-                console.log("Login success action being created")
                 state.set('isUserLoggedIn', true);
                 state.set('user', action.data);
             });
@@ -39,8 +38,16 @@ export default function uiReducer(state=initialState, action) {
 
         case actionTypes.LOGIN: {
             return initialState.withMutations((state) => {
-                state.set('isUserLoggedIn', false);
+                state.set('isUserLoggedIn', true);
+                state.set('user', action.user);
             });
+        }
+
+        case actionTypes.LOGOUT: {
+            return initialState.withMutations((state) => {
+                state.set('isUserLoggedIn', false);
+                state.set('user', null);
+            })
         }
 
         default:
