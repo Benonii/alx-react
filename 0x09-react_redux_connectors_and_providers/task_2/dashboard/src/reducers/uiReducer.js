@@ -39,8 +39,16 @@ export default function uiReducer(state=initialState, action) {
 
         case actionTypes.LOGIN: {
             return initialState.withMutations((state) => {
-                state.set('isUserLoggedIn', false);
+                state.set('isUserLoggedIn', true);
+                state.set('user', action.user);
             });
+        }
+
+        case actionTypes.LOGOUT: {
+            return initialState.withMutations((state) => {
+                state.set('isUserLoggedIn', false);
+                state.set('user', null);
+            })
         }
 
         default:
