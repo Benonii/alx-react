@@ -9,4 +9,4 @@ const rootReducer = combineReducers({
     ui: uiReducer,
 });
 
-export { rootReducer };
+export default { rootReducer };
