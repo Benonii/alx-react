@@ -217,4 +217,4 @@ export const mapDisplayNotificationDispatchToProps = {
   loginRequest,
 }
 
-connect(mapStateToProps(rootReducer()), mapDisplayNotificationDispatchToProps)(App);
+connect(mapStateToProps, mapDisplayNotificationDispatchToProps)(App);
