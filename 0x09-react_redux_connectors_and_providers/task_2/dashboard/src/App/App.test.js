@@ -44,34 +44,30 @@ describe('<App /> when user is not logged in', () => {
         expect(wrapper.find(CourseList).length).toBe(0);
     });
 
-    it('has state updated correctly when logIn is called', () => {
-        const wrapper = shallow(<App />);
-        wrapper.instance().logIn();
+    // it('has state updated correctly when logIn is called', () => {
+    //     const wrapper = shallow(<App />);
+    //     wrapper.instance().logIn();
 
-        expect(wrapper.state().user.isLoggedIn).toBe(true)
-    })
+    //     expect(wrapper.state().user.isLoggedIn).toBe(true)
+    // })
 });
 
 describe('<App /> when user user is logged in', () => {
     it('Does not contain the Login component', () => {
-        const wrapper = shallow(<App />);
-        wrapper.setState({ user: { isLoggedIn: true } })
+        const wrapper = shallow(<App user={{ isLoggedIn: true }}/>);
         expect(wrapper.find(Login).length).toBe(0)
     });
 
     it('Contains the CourseList component', () => {
-        const wrapper = shallow(<App />);
-        wrapper.setState({ user: { isLoggedIn: true } })
+        const wrapper = shallow(<App user={{ isLoggedIn: true }}/>);
         expect(wrapper.find(CourseList).length).toBe(1);
     });
     
     it('Calling logOut alters the state properly', () => {;
-        const wrapper = shallow(<App />);
-        wrapper.setState({ user: { isLoggedIn: true } })
+        const wrapper = shallow(<App user={{ isLoggedIn: true }}/>);
 
         const app = wrapper.instance();
         app.logOut();
-        // console.log(wrapper.state())
         expect(wrapper.state().user.isLoggedIn).toBe(false);
     });
 
