@@ -12,7 +12,7 @@ import BodySection from "../BodySection/BodySection";
 import AppContext from "./AppContext";
 import { connect } from "react-redux";
 import { displayNotificationDrawer, hideNotificationDrawer, loginRequest } from "../actions/uiActionCreators";
-import uiReducer from "../reducers/uiReducer";
+import rootReducer from "../reducers/rootReducer";
 
 export default class App extends Component {
   constructor(props) {
@@ -217,4 +217,4 @@ export const mapDisplayNotificationDispatchToProps = {
   loginRequest,
 }
 
-connect(mapStateToProps(uiReducer()), mapDisplayNotificationDispatchToProps)(App);
+connect(mapStateToProps(rootReducer()), mapDisplayNotificationDispatchToProps)(App);
