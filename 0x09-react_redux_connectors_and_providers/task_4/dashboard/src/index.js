@@ -6,10 +6,10 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { thunk } from 'redux-thunk';
 import { Provider } from 'react-redux';
-import uiReducer from './reducers/uiReducer';
+import rootReducer from './reducers/rootReducerReducer';
 
 const composeEnhancers = composeWithDevTools({});
-const store = createStore(uiReducer, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
